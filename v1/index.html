@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SynergySphere - Team Collaboration Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1>SynergySphere</h1>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="#" class="nav-link" data-page="dashboard">Dashboard</a>
+                <a href="#" class="nav-link" data-page="profile">Profile</a>
+            </div>
+            <div class="nav-actions">
+                <div class="notification-container">
+                    <button class="notification-btn" id="notificationBtn">
+                        <span class="notification-icon">🔔</span>
+                        <span class="notification-badge" id="notificationBadge">3</span>
+                    </button>
+                    <!-- Notification Dropdown -->
+                    <div class="notification-dropdown" id="notificationDropdown">
+                        <div class="notification-header">
+                            <h3>Notifications</h3>
+                            <button class="mark-all-read" id="markAllRead">Mark all read</button>
+                        </div>
+                        <div class="notification-list" id="notificationList">
+                            <!-- Notifications will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+                <button class="theme-toggle" id="themeToggle">
+                    <span class="theme-icon">🌙</span>
+                </button>
+                <button class="logout-btn" id="logoutBtn">Logout</button>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <!-- Login Screen -->
+        <div class="screen" id="loginScreen">
+            <div class="login-container">
+                <div class="login-header">
+                    <h1>Welcome to SynergySphere</h1>
+                    <p>Collaborate, organize, and achieve together</p>
+                </div>
+                <form class="login-form" id="loginForm">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Sign In</button>
+                        <button type="button" class="btn btn-secondary" id="showSignup">Sign Up</button>
+                    </div>
+                    <div class="form-footer">
+                        <a href="#" class="forgot-password">Forgot Password?</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Signup Screen -->
+        <div class="screen hidden" id="signupScreen">
+            <div class="signup-container">
+                <div class="signup-header">
+                    <h1>Join SynergySphere</h1>
+                    <p>Start collaborating with your team today</p>
+                </div>
+                <form class="signup-form" id="signupForm">
+                    <div class="form-group">
+                        <label for="signupName">Full Name</label>
+                        <input type="text" id="signupName" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupEmail">Email</label>
+                        <input type="email" id="signupEmail" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupPassword">Password</label>
+                        <input type="password" id="signupPassword" name="password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" required>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Create Account</button>
+                        <button type="button" class="btn btn-secondary" id="showLogin">Back to Sign In</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Dashboard Screen -->
+        <div class="screen hidden" id="dashboardScreen">
+            <div class="dashboard-container">
+                <div class="dashboard-header">
+                    <h2>My Projects</h2>
+                    <button class="btn btn-primary" id="newProjectBtn">
+                        <span>+</span> New Project
+                    </button>
+                </div>
+                
+                <!-- Quick Stats -->
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">📊</div>
+                        <div class="stat-content">
+                            <div class="stat-number" id="totalProjects">0</div>
+                            <div class="stat-label">Total Projects</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">✅</div>
+                        <div class="stat-content">
+                            <div class="stat-number" id="completedTasks">0</div>
+                            <div class="stat-label">Completed Tasks</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">⏰</div>
+                        <div class="stat-content">
+                            <div class="stat-number" id="dueToday">0</div>
+                            <div class="stat-label">Due Today</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">👥</div>
+                        <div class="stat-content">
+                            <div class="stat-number" id="teamMembers">0</div>
+                            <div class="stat-label">Team Members</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="projects-grid" id="projectsGrid">
+                    <!-- Projects will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Project Detail Screen -->
+        <div class="screen hidden" id="projectDetailScreen">
+            <div class="project-detail-container">
+                <div class="project-header">
+                    <button class="back-btn" id="backToDashboard">← Back</button>
+                    <div class="project-info">
+                        <h2 id="projectTitle">Project Alpha</h2>
+                        <div class="project-meta">
+                            <div class="project-language">
+                                <span class="language-dot" id="projectLanguageDot"></span>
+                                <span id="projectLanguage">JavaScript</span>
+                            </div>
+                            <div class="project-stats">
+                                <span class="stat-item">
+                                    <span class="stat-label">Progress:</span>
+                                    <span id="projectProgress">75%</span>
+                                </span>
+                                <span class="stat-item">
+                                    <span class="stat-label">Tasks:</span>
+                                    <span id="projectTaskCount">12</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Members Section -->
+                <div class="team-section">
+                    <div class="section-header">
+                        <h3>Team Members</h3>
+                        <button class="btn btn-secondary btn-sm" id="addMemberBtn">+ Add Member</button>
+                    </div>
+                    <div class="team-members" id="teamMembers">
+                        <!-- Members will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Project Stats Section -->
+                <div class="project-stats-section">
+                    <div class="section-header">
+                        <h3>Project Statistics</h3>
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <h4>Contributions</h4>
+                            <div class="contribution-graph" id="contributionGraph">
+                                <!-- Contribution heatmap will be populated by JavaScript -->
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Activity Timeline</h4>
+                            <div class="activity-timeline" id="activityTimeline">
+                                <!-- Activity timeline will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-tabs">
+                    <button class="tab-btn active" data-tab="tasks">Tasks</button>
+                    <button class="tab-btn" data-tab="milestones">Milestones</button>
+                    <button class="tab-btn" data-tab="notes">Notes</button>
+                    <button class="tab-btn" data-tab="workload">Workload</button>
+                    <button class="tab-btn" data-tab="discussions">Discussions</button>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-panel active" id="tasksPanel">
+                        <div class="task-view-controls">
+                            <div class="view-toggle">
+                                <button class="view-btn active" data-view="board">Board</button>
+                                <button class="view-btn" data-view="list">List</button>
+                            </div>
+                            <button class="btn btn-primary" id="addTaskBtn">+ Add Task</button>
+                        </div>
+                        
+                        <!-- Board View -->
+                        <div class="task-view active" id="boardView">
+                            <div class="kanban-board" id="kanbanBoard">
+                                <div class="kanban-column" data-status="todo">
+                                    <div class="column-header">
+                                        <h3>To Do</h3>
+                                        <span class="task-count" id="todoCount">0</span>
+                                    </div>
+                                    <div class="task-list" id="todoList">
+                                        <!-- Tasks will be populated by JavaScript -->
+                                    </div>
+                                </div>
+                                <div class="kanban-column" data-status="in-progress">
+                                    <div class="column-header">
+                                        <h3>In Progress</h3>
+                                        <span class="task-count" id="inProgressCount">0</span>
+                                    </div>
+                                    <div class="task-list" id="inProgressList">
+                                        <!-- Tasks will be populated by JavaScript -->
+                                    </div>
+                                </div>
+                                <div class="kanban-column" data-status="done">
+                                    <div class="column-header">
+                                        <h3>Done</h3>
+                                        <span class="task-count" id="doneCount">0</span>
+                                    </div>
+                                    <div class="task-list" id="doneList">
+                                        <!-- Tasks will be populated by JavaScript -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- List View -->
+                        <div class="task-view" id="listView">
+                            <div class="task-list-table">
+                                <div class="table-header">
+                                    <div class="table-cell">Title</div>
+                                    <div class="table-cell">Assignee</div>
+                                    <div class="table-cell">Due Date</div>
+                                    <div class="table-cell">Status</div>
+                                    <div class="table-cell">Priority</div>
+                                    <div class="table-cell">Tags</div>
+                                    <div class="table-cell">Actions</div>
+                                </div>
+                                <div class="table-body" id="taskTableBody">
+                                    <!-- Tasks will be populated by JavaScript -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-panel" id="milestonesPanel">
+                        <div class="milestones-container">
+                            <div class="section-header">
+                                <h3>Project Milestones</h3>
+                                <button class="btn btn-primary" id="addMilestoneBtn">+ Add Milestone</button>
+                            </div>
+                            <div class="milestones-timeline" id="milestonesTimeline">
+                                <!-- Milestones will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-panel" id="notesPanel">
+                        <div class="notes-container">
+                            <div class="notes-toolbar">
+                                <button class="btn btn-sm" id="boldBtn" title="Bold">B</button>
+                                <button class="btn btn-sm" id="italicBtn" title="Italic">I</button>
+                                <button class="btn btn-sm" id="listBtn" title="List">•</button>
+                                <button class="btn btn-sm" id="saveNotesBtn">Save Notes</button>
+                            </div>
+                            <div class="notes-editor" id="notesEditor" contenteditable="true">
+                                <!-- Notes content will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-panel" id="workloadPanel">
+                        <div class="workload-container">
+                            <div class="section-header">
+                                <h3>Team Workload</h3>
+                            </div>
+                            <div class="workload-grid" id="workloadGrid">
+                                <!-- Workload will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-panel" id="discussionsPanel">
+                        <div class="discussions-container">
+                            <div class="discussion-input">
+                                <textarea placeholder="Start a discussion... Use @username to mention someone" id="discussionInput"></textarea>
+                                <button class="btn btn-primary" id="postDiscussion">Post</button>
+                            </div>
+                            <div class="discussions-list" id="discussionsList">
+                                <!-- Discussions will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Comments Section -->
+                <div class="project-comments-section">
+                    <div class="section-header">
+                        <h3>Project Comments</h3>
+                    </div>
+                    <div class="comments-container">
+                        <div class="comment-input">
+                            <textarea placeholder="Leave a comment... Use @username to mention someone" id="projectCommentInput"></textarea>
+                            <button class="btn btn-primary" id="postProjectComment">Comment</button>
+                        </div>
+                        <div class="project-comments-list" id="projectCommentsList">
+                            <!-- Project comments will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Screen -->
+        <div class="screen hidden" id="profileScreen">
+            <div class="profile-container">
+                <div class="profile-header">
+                    <div class="profile-avatar-container">
+                        <div class="profile-avatar" id="profileAvatar">
+                            <span class="avatar-initials" id="avatarInitials">JD</span>
+                            <div class="avatar-upload-overlay">
+                                <span class="upload-icon">📷</span>
+                                <span class="upload-text">Change Photo</span>
+                            </div>
+                            <input type="file" id="avatarUpload" accept="image/*" class="avatar-upload-input" />
+                        </div>
+                    </div>
+                    <div class="profile-info">
+                        <h1 id="profileName">John Doe</h1>
+                        <p class="profile-title" id="profileTitle">Senior Software Developer</p>
+                        <div class="profile-location">
+                            <span class="location-icon">📍</span>
+                            <span id="profileLocation">San Francisco, CA</span>
+                        </div>
+                        <div class="profile-social" id="profileSocial">
+                            <a href="#" class="social-link" data-platform="linkedin">
+                                <span class="social-icon">🔗</span> Add LinkedIn
+                            </a>
+                            <a href="#" class="social-link" data-platform="github">
+                                <span class="social-icon">🐙</span> Add GitHub
+                            </a>
+                            <a href="#" class="social-link" data-platform="twitter">
+                                <span class="social-icon">🐦</span> Add Twitter
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-content">
+                    <div class="profile-section">
+                        <div class="section-header">
+                            <h2>About Me</h2>
+                            <button class="btn btn-sm btn-text" id="editAbout">Edit</button>
+                        </div>
+                        <p class="profile-about" id="profileAbout">
+                            Passionate software developer with 5+ years of experience in building web applications.
+                            Specialized in JavaScript, React, and Node.js. Love open source and contributing to
+                            developer communities.
+                        </p>
+                        <div class="edit-about hidden" id="editAboutForm">
+                            <textarea class="form-control" id="aboutTextarea" rows="4"></textarea>
+                            <div class="form-actions">
+                                <button class="btn btn-sm btn-primary" id="saveAbout">Save</button>
+                                <button class="btn btn-sm btn-text" id="cancelEditAbout">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="profile-section">
+                        <div class="section-header">
+                            <h2>Contact Information</h2>
+                            <button class="btn btn-sm btn-text" id="editContact">Edit</button>
+                        </div>
+                        <div class="contact-info" id="contactInfo">
+                            <div class="contact-item">
+                                <span class="contact-icon">✉️</span>
+                                <span class="contact-value" id="contactEmail">john.doe@example.com</span>
+                            </div>
+                            <div class="contact-item">
+                                <span class="contact-icon">📱</span>
+                                <span class="contact-value" id="contactPhone">+1 (555) 123-4567</span>
+                            </div>
+                        </div>
+                        <div class="edit-contact hidden" id="editContactForm">
+                            <div class="form-group">
+                                <label for="emailInput">Email</label>
+                                <input type="email" id="emailInput" class="form-control" value="john.doe@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="phoneInput">Phone</label>
+                                <input type="tel" id="phoneInput" class="form-control" value="+1 (555) 123-4567">
+                            </div>
+                            <div class="form-actions">
+                                <button class="btn btn-sm btn-primary" id="saveContact">Save</button>
+                                <button class="btn btn-sm btn-text" id="cancelEditContact">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="profile-section">
+                        <div class="section-header">
+                            <h2>Account Settings</h2>
+                        </div>
+                        <div class="settings-list">
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <h3>Change Password</h3>
+                                    <p>Update your account password</p>
+                                </div>
+                                <button class="btn btn-sm btn-outline" id="changePasswordBtn">Change</button>
+                            </div>
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <h3>Notification Preferences</h3>
+                                    <p>Manage your notification settings</p>
+                                </div>
+                                <button class="btn btn-sm btn-outline" id="notificationSettingsBtn">Manage</button>
+                            </div>
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <h3>Privacy Settings</h3>
+                                    <p>Control your privacy options</p>
+                                </div>
+                                <button class="btn btn-sm btn-outline" id="privacySettingsBtn">Manage</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Task Modal -->
+        <div class="modal" id="taskModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="taskModalTitle">Add Task</h3>
+                    <button class="modal-close" id="taskModalClose">×</button>
+                </div>
+                <form class="modal-form" id="taskForm">
+                    <div class="form-group">
+                        <label for="taskTitle">Title</label>
+                        <input type="text" id="taskTitle" name="title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="taskDescription">Description</label>
+                        <textarea id="taskDescription" name="description"></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="taskAssignee">Assignee</label>
+                            <select id="taskAssignee" name="assignee">
+                                <!-- Options will be populated by JavaScript -->
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="taskDueDate">Due Date</label>
+                            <input type="date" id="taskDueDate" name="dueDate">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="taskStatus">Status</label>
+                            <select id="taskStatus" name="status">
+                                <option value="todo">To Do</option>
+                                <option value="in-progress">In Progress</option>
+                                <option value="done">Done</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="taskPriority">Priority</label>
+                            <select id="taskPriority" name="priority">
+                                <option value="low">Low</option>
+                                <option value="medium">Medium</option>
+                                <option value="high">High</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="taskTags">Tags</label>
+                        <input type="text" id="taskTags" name="tags" placeholder="Enter tags separated by commas (e.g., UI, Bug, Backend)">
+                    </div>
+                    <div class="form-group">
+                        <label for="taskDependencies">Dependencies</label>
+                        <select id="taskDependencies" name="dependencies" multiple>
+                            <!-- Options will be populated by JavaScript -->
+                        </select>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="button" class="btn btn-secondary" id="taskModalCancel">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Save Task</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Task Detail Modal -->
+        <div class="modal" id="taskDetailModal">
+            <div class="modal-content large">
+                <div class="modal-header">
+                    <h3 id="taskDetailTitle">Task Details</h3>
+                    <button class="modal-close" id="taskDetailClose">×</button>
+                </div>
+                <div class="task-detail-content">
+                    <div class="task-detail-main">
+                        <div class="task-detail-info">
+                            <h4 id="taskDetailTitleText">Task Title</h4>
+                            <p id="taskDetailDescription">Task description goes here...</p>
+                            <div class="task-meta">
+                                <div class="task-meta-item">
+                                    <span class="label">Assignee:</span>
+                                    <span id="taskDetailAssignee">John Doe</span>
+                                </div>
+                                <div class="task-meta-item">
+                                    <span class="label">Due Date:</span>
+                                    <span id="taskDetailDueDate">Dec 25, 2024</span>
+                                </div>
+                                <div class="task-meta-item">
+                                    <span class="label">Status:</span>
+                                    <span class="status-badge" id="taskDetailStatus">In Progress</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="task-comments">
+                            <h4>Comments</h4>
+                            <div class="comment-input">
+                                <textarea placeholder="Add a comment..." id="commentInput"></textarea>
+                                <button class="btn btn-primary" id="addComment">Comment</button>
+                            </div>
+                            <div class="comments-list" id="commentsList">
+                                <!-- Comments will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add Member Modal -->
+        <div class="modal" id="addMemberModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Add Team Member</h3>
+                    <button class="modal-close" id="addMemberClose">×</button>
+                </div>
+                <form class="modal-form" id="addMemberForm">
+                    <div class="form-group">
+                        <label for="memberEmail">Email Address</label>
+                        <input type="email" id="memberEmail" name="email" required placeholder="Enter member's email">
+                    </div>
+                    <div class="form-group">
+                        <label for="memberRole">Role</label>
+                        <select id="memberRole" name="role">
+                            <option value="member">Member</option>
+                            <option value="admin">Admin</option>
+                            <option value="viewer">Viewer</option>
+                        </select>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="button" class="btn btn-secondary" id="addMemberCancel">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Add Member</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Add Milestone Modal -->
+        <div class="modal" id="addMilestoneModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Add Milestone</h3>
+                    <button class="modal-close" id="addMilestoneClose">×</button>
+                </div>
+                <form class="modal-form" id="addMilestoneForm">
+                    <div class="form-group">
+                        <label for="milestoneName">Milestone Name</label>
+                        <input type="text" id="milestoneName" name="name" required placeholder="Enter milestone name">
+                    </div>
+                    <div class="form-group">
+                        <label for="milestoneDescription">Description</label>
+                        <textarea id="milestoneDescription" name="description" placeholder="Enter milestone description"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="milestoneDueDate">Due Date</label>
+                        <input type="date" id="milestoneDueDate" name="dueDate" required>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="button" class="btn btn-secondary" id="addMilestoneCancel">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Add Milestone</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Profile Screen -->
+        <div class="screen hidden" id="profileScreen">
+            <div class="profile-container">
+                <div class="profile-header">
+                    <h2>Profile & Settings</h2>
+                </div>
+                <div class="profile-content">
+                    <div class="profile-info">
+                        <div class="profile-avatar">
+                            <span id="profileInitials">JD</span>
+                        </div>
+                        <div class="profile-details">
+                            <h3 id="profileName">John Doe</h3>
+                            <p id="profileEmail">john.doe@example.com</p>
+                        </div>
+                    </div>
+                    <div class="settings-section">
+                        <h3>Preferences</h3>
+                        <div class="setting-item">
+                            <label for="themePreference">Theme</label>
+                            <select id="themePreference">
+                                <option value="light">Light</option>
+                                <option value="dark">Dark</option>
+                                <option value="auto">Auto</option>
+                            </select>
+                        </div>
+                        <div class="setting-item">
+                            <label>
+                                <input type="checkbox" id="emailNotifications" checked>
+                                Email Notifications
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <label>
+                                <input type="checkbox" id="pushNotifications" checked>
+                                Push Notifications
+                            </label>
+                        </div>
+                    </div>
+                    <div class="profile-actions">
+                        <button class="btn btn-danger" id="logoutProfileBtn">Logout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav" id="mobileNav">
+        <a href="#" class="mobile-nav-item active" data-page="dashboard">
+            <span class="nav-icon">📊</span>
+            <span class="nav-label">Dashboard</span>
+        </a>
+        <a href="#" class="mobile-nav-item" data-page="profile">
+            <span class="nav-icon">👤</span>
+            <span class="nav-label">Profile</span>
+        </a>
+    </nav>
+
+    <script src="script.js"></script>
+</body>
+</html>
