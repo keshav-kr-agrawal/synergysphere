@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🌐 SynergySphere – Full-Stack Team Collaboration Platform
 
 ## 📌 Overview
@@ -235,3 +236,6 @@ For support, email support@synergysphere.com or create an issue in the repositor
 ---
 
 **Built with ❤️ by the SynergySphere Team**
+=======
+# synergysphere
+>>>>>>> 0334cba2bec168062eaa0daa8176804ee375f9bd
