@@ -1,227 +1,160 @@
+# 🚀 SynergySphere Frontend MVP
 
-# 🌐 SynergySphere – Full-Stack Team Collaboration Platform
+A modern, responsive team collaboration platform built with **HTML, CSS, and vanilla JavaScript** only.
 
-## 📌 Overview
-SynergySphere is a **centralized collaboration tool** that merges **GitHub-style contributions**, **ClickUp task workflows**, and a **Discord-inspired UI** into one seamless app. It serves as the central nervous system for teamwork, eliminating the need to switch between multiple tools.
+## ✨ Features
 
-## 🚀 Features
+### 🎨 Design & UX
+- **Responsive Design**: Works perfectly on desktop and mobile devices
+- **Dark/Light Theme**: Toggle between themes with persistent preference
+- **Modern UI**: Clean, professional design with smooth animations
+- **Mobile-First**: Optimized for mobile with bottom navigation
 
-### Core Functionality
-- **Authentication**: JWT-based secure login/registration
-- **Project Management**: Create and manage multiple projects with team members
-- **Task Management**: Kanban board and list views with drag-and-drop functionality
-- **Milestones**: Track project progress with visual timelines
-- **Real-time Collaboration**: Live chat and notifications via Socket.IO
-- **Notes**: Collaborative project documentation
-- **Workload Management**: Team member workload visualization
-- **Activity Tracking**: GitHub-style contribution graphs and activity logs
-- **Dark/Light Themes**: Customizable UI themes
+### 📊 Enhanced Project Management
+- **Project Dashboard**: View all projects with progress indicators and quick stats
+- **Health Status**: Visual indicators for project status (On Track, At Risk, Behind)
+- **Language Indicators**: GitHub-style language dots for each project
+- **Member Avatars**: Show team members with initials (up to 5, then "+X more")
+- **Progress Tracking**: Visual progress bars with task counts
+- **Quick Stats**: Dashboard shows total projects, completed tasks, due today, and team members
 
-### UI/UX
-- **Discord-like Interface**: Familiar sidebar navigation and channel-style projects
-- **Responsive Design**: Works seamlessly on desktop and mobile
-- **Modern UI**: Built with React and Tailwind CSS
-- **Real-time Updates**: Instant notifications and live collaboration
+### 👥 Team Management
+- **Team Members Section**: Dedicated section showing all project members
+- **Add Members**: Modal to add new team members by email with role assignment
+- **Remove Members**: Remove team members with confirmation
+- **Role Management**: Assign roles (Admin, Member, Viewer) to team members
+- **Member Info**: Display member name, role, and avatar
 
-## 🛠️ Tech Stack
+### 📈 Project Statistics
+- **Contribution Graph**: GitHub-style contribution heatmap showing activity levels
+- **Activity Timeline**: Weekly activity bars showing daily contributions
+- **Language Stats**: Primary programming language with color-coded indicators
+- **Project Metrics**: Progress percentage and task counts
 
-### Frontend
-- **React 18** - Modern UI library
-- **Tailwind CSS** - Utility-first CSS framework
-- **React Router** - Client-side routing
-- **Socket.IO Client** - Real-time communication
-- **React Beautiful DnD** - Drag and drop functionality
-- **Lucide React** - Beautiful icons
+### 📋 Enhanced Task Management
+- **Kanban Board**: Drag-and-drop task management with 3 columns (To Do, In Progress, Done)
+- **Task Creation**: Add new tasks with title, description, assignee, and due date
+- **Task Details**: View and edit task information with threaded comments
+- **Real-time Updates**: Drag tasks between columns to update status
+- **Task Comments**: Add comments to individual tasks with @mention support
 
-### Backend
-- **Node.js** - JavaScript runtime
-- **Express.js** - Web framework
-- **MongoDB** - NoSQL database
-- **Mongoose** - MongoDB object modeling
-- **Socket.IO** - Real-time bidirectional communication
-- **JWT** - JSON Web Token authentication
-- **bcryptjs** - Password hashing
+### 💬 Advanced Collaboration
+- **Project Discussions**: Threaded discussions for each project
+- **Project Comments**: Dedicated comment section at the bottom of project views
+- **Reactions**: Add emoji reactions to discussion posts
+- **Pin Messages**: Pin important decisions as "Decision Snapshots"
+- **@Mentions**: Mention team members in comments and discussions with visual highlighting
+- **Real-time Updates**: Comments and discussions update dynamically
 
-### Deployment
-- **Docker** - Containerization
-- **Docker Compose** - Multi-container orchestration
+### 🔔 Enhanced Notifications
+- **Notification Center**: View all notifications in a dropdown with icons
+- **Rich Notifications**: Icons and detailed messages for different notification types
+- **Real-time Updates**: Mock notifications for task due dates, mentions, member changes, etc.
+- **Mark as Read**: Mark individual or all notifications as read
+- **Latest 5**: Show only the 5 most recent notifications
 
-## 📂 Project Structure
+### 👤 User Management
+- **Profile Settings**: View and edit user profile
+- **Theme Preferences**: Choose between light, dark, or auto theme
+- **Notification Settings**: Toggle email and push notifications
+- **Secure Login**: Mock authentication system
+
+## 🛠️ Technical Stack
+
+- **HTML5**: Semantic markup with accessibility in mind
+- **CSS3**: Modern CSS with custom properties, Grid, and Flexbox
+- **Vanilla JavaScript**: No external frameworks, pure ES6+ JavaScript
+- **Local Storage**: Persistent theme and user preferences
+- **Drag & Drop API**: Native HTML5 drag and drop for Kanban board
+
+## 🚀 Getting Started
+
+1. **Clone or Download** the project files
+2. **Open** `index.html` in your web browser
+3. **Sign Up** with any email and password (mock authentication)
+4. **Explore** the features and start collaborating!
+
+## 📱 Demo Flow
+
+1. **Login/Signup** → Enter any email and password
+2. **Dashboard** → View project cards with language indicators, member avatars, and quick stats
+3. **Open Project** → Click on any project card
+4. **Team Members** → View team members, add new members, or remove existing ones
+5. **Project Stats** → See contribution heatmap and activity timeline
+6. **Task Board** → Drag tasks between columns (To Do, In Progress, Done)
+7. **Add Task** → Click the floating "+" button to create new tasks
+8. **Discussions** → Switch to discussions tab, post with @mentions
+9. **Project Comments** → Scroll down to see project-wide comments section
+10. **Notifications** → Click the bell icon to see rich notifications with icons
+11. **Profile** → Access settings, theme toggle, and notification preferences
+
+## 🎯 Key Features Demonstrated
+
+### Responsive Design
+- Desktop: Top navigation with sidebar
+- Mobile: Bottom navigation with collapsible menu
+- Adaptive layouts for all screen sizes
+
+### Theme System
+- CSS custom properties for easy theme switching
+- Persistent theme preference in localStorage
+- Smooth transitions between themes
+
+### State Management
+- Centralized app state with JavaScript class
+- Mock data for users, projects, tasks, and discussions
+- Real-time UI updates based on state changes
+
+### Drag & Drop
+- Native HTML5 drag and drop API
+- Visual feedback during drag operations
+- Automatic status updates when dropping tasks
+
+## 🔧 Customization
+
+### Adding New Features
+- Extend the `AppState` class for new functionality
+- Add new screens by creating HTML templates and CSS
+- Update the navigation system for new pages
+
+### Styling
+- Modify CSS custom properties in `:root` for global changes
+- Add new component styles following the existing pattern
+- Update theme variables for new color schemes
+
+### Data Management
+- Replace mock data with real API calls
+- Implement proper authentication
+- Add data persistence with backend integration
+
+## 📁 File Structure
 
 ```
-synergysphere/
-├── frontend/                 # React frontend
-│   ├── src/
-│   │   ├── components/       # Reusable UI components
-│   │   ├── pages/           # Page components
-│   │   ├── context/         # React context providers
-│   │   └── App.js           # Main app component
-│   ├── public/              # Static assets
-│   └── package.json
-├── backend/                 # Node.js backend
-│   ├── models/              # Mongoose models
-│   ├── routes/              # API routes
-│   ├── middleware/          # Custom middleware
-│   └── server.js            # Express server
-├── docker-compose.yml       # Docker orchestration
-└── README.md
+SynergySphere/
+├── index.html          # Main HTML file
+├── style.css           # All CSS styles
+├── script.js           # JavaScript functionality
+└── README.md           # This file
 ```
 
-## 🚀 Quick Start
+## 🌟 Browser Support
 
-### Prerequisites
-- Node.js 18+ 
-- Docker and Docker Compose
-- Git
+- Chrome 60+
+- Firefox 55+
+- Safari 12+
+- Edge 79+
 
-### Installation
+## 📝 Notes
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/keshav-kr-agrawal/synergysphere.git
-   cd synergysphere
-   ```
+This is a **frontend-only MVP** designed to demonstrate the user interface and basic functionality. In a production environment, you would need to:
 
-2. **Start with Docker (Recommended)**
-   ```bash
-   docker-compose up --build
-   ```
+- Implement real authentication
+- Connect to a backend API
+- Add data persistence
+- Implement real-time updates
+- Add proper error handling
+- Include unit tests
 
-3. **Or run locally**
-   ```bash
-   # Install dependencies
-   npm run install-all
-   
-   # Start development servers
-   npm run dev
-   ```
+## 🎉 Enjoy!
 
-## 🔧 Configuration
-
-### Environment Variables
-Create a `.env` file in the root directory:
-
-```env
-# Database
-MONGODB_URI=mongodb://localhost:27017/synergysphere
-
-# JWT
-JWT_SECRET=your-super-secret-jwt-key-change-in-production
-JWT_EXPIRE=7d
-
-# Server
-PORT=5000
-NODE_ENV=development
-
-# Frontend
-REACT_APP_API_URL=http://localhost:5000
-REACT_APP_SOCKET_URL=http://localhost:5000
-```
-
-## 📱 Usage
-
-### Getting Started
-1. **Register** a new account or **login** with existing credentials
-2. **Create a project** using the sidebar or dashboard
-3. **Invite team members** to collaborate
-4. **Add tasks** and organize them in the Kanban board
-5. **Set milestones** to track project progress
-6. **Use real-time chat** for team communication
-7. **Monitor workload** and activity across the team
-
-### Key Features Walkthrough
-
-#### Dashboard
-- Overview of all your projects
-- Quick stats and progress indicators
-- Project cards with key information
-
-#### Project Detail
-- **Board View**: Drag-and-drop task management
-- **List View**: Detailed task table with sorting
-- **Milestones**: Visual timeline with progress tracking
-- **Notes**: Collaborative project documentation
-- **Workload**: Team member capacity visualization
-- **Activity**: GitHub-style contribution tracking
-- **Discussion**: Real-time team chat
-
-#### Task Management
-- Create tasks with descriptions, due dates, and priorities
-- Assign tasks to team members
-- Track progress with status updates
-- Add comments and collaborate in real-time
-
-## 🔒 Security
-
-- **JWT Authentication**: Secure token-based authentication
-- **Password Hashing**: bcrypt for secure password storage
-- **Input Validation**: Server-side validation for all inputs
-- **CORS Protection**: Configured for secure cross-origin requests
-- **Environment Variables**: Sensitive data stored in environment variables
-
-## 🚀 Deployment
-
-### Production Deployment
-1. Update environment variables for production
-2. Build the application:
-   ```bash
-   docker-compose -f docker-compose.prod.yml up --build
-   ```
-
-### Environment-Specific Configurations
-- **Development**: Hot reloading, detailed logging
-- **Production**: Optimized builds, security headers
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📋 Roadmap
-
-### Upcoming Features
-- [ ] File sharing within tasks
-- [ ] Calendar integration (Google/Outlook)
-- [ ] AI-powered task prioritization
-- [ ] Mobile app version
-- [ ] Advanced reporting and analytics
-- [ ] Integration with external tools (GitHub, Slack)
-- [ ] Custom workflows and automation
-
-### Performance Improvements
-- [ ] Database query optimization
-- [ ] Caching implementation
-- [ ] Image optimization
-- [ ] Bundle size optimization
-
-## 🐛 Troubleshooting
-
-### Common Issues
-
-**MongoDB Connection Error**
-- Ensure MongoDB is running
-- Check connection string in environment variables
-
-**Socket.IO Connection Issues**
-- Verify CORS settings
-- Check if ports are available
-
-**Build Errors**
-- Clear node_modules and reinstall
-- Check Node.js version compatibility
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- **Discord** for UI/UX inspiration
-- **ClickUp** for task management concepts
-- **GitHub** for contribution tracking ideas
-- **React** and **Node.js** communities for excellent documentation
-
-=======
+The SynergySphere frontend is now ready to use! Start collaborating with your team and experience the power of modern web technologies without any external dependencies.
