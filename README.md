@@ -224,13 +224,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **GitHub** for contribution tracking ideas
 - **React** and **Node.js** communities for excellent documentation
 
-## 📞 Support
-
-For support, email support@synergysphere.com or create an issue in the repository.
-
----
-
-**Built with ❤️ by the SynergySphere Team**
 =======
-# synergysphere
->>>>>>> 0334cba2bec168062eaa0daa8176804ee375f9bd
