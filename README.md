@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # 🌐 SynergySphere – Full-Stack Team Collaboration Platform
 
 ## 📌 Overview
