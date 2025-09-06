@@ -1,7 +1,7 @@
 {
   "name": "synergysphere",
   "version": "1.0.0",
-  "description": "Full-Stack Team Collaboration Platform",
+  "description": "Full-Stack Team Collaboration Platform with real time updates and minimal latency.",
   "main": "index.js",
   "scripts": {
     "dev": "concurrently \"npm run server\" \"npm run client\"",
@@ -10,7 +10,7 @@
     "build": "cd frontend && npm run build",
     "install-all": "npm install && cd backend && npm install && cd ../frontend && npm install"
   },
-  "keywords": ["collaboration", "project-management", "team", "fullstack"],
+  "keywords": ["collaboration", "project-management", "team", "fullstack", "web-app"],
   "author": "SynergySphere Team",
   "license": "MIT",
   "devDependencies": {
