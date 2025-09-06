@@ -96,11 +96,6 @@ synergysphere/
    npm run dev
    ```
 
-### Access the Application
-- **Frontend**: http://localhost:3000
-- **Backend API**: http://localhost:5000
-- **MongoDB**: localhost:27017
-
 ## 🔧 Configuration
 
 ### Environment Variables
